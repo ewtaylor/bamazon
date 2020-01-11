@@ -1,12 +1,12 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
-var Table = require("cli-table");
+var Table = require("cli-table2");
 
 var connection = mysql.createConnection({
 	host:"localhost",
 	port:3306,
 	user:"root",
-	password:"",
+	password:"Madrid2019$",
 	database:"bamazon"
 });
 
@@ -28,8 +28,10 @@ var displayProducts = function(){
 				[res[i].item_id,res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]
 				);
 		}
-		console.log(displayTable.toString());
-		purchasePrompt();
+        console.log(displayTable.toString());
+        console.log("");
+    
+		// purchasePrompt();
 	});
 }
 
@@ -70,5 +72,6 @@ function purchaseOrder(ID, amtNeeded){
 		displayProducts();
 	});
 };
+   
 
 displayProducts(); 

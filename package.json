@@ -9,8 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cli-table2": "^0.2.0",
     "inquirer": "^3.3.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.17.1"
   },
   "devDependencies": {},
   "repository": {
