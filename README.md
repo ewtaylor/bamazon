@@ -1,3 +1,5 @@
+Week 12/Node.js & MySQL
+
 Overview:
 This is an interactive shopping node app where MySQL and Node.JS allow users to purchase items as a customer.
 
