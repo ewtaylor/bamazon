@@ -1,23 +1,23 @@
 {
-  "name": "week12",
+  "name": "bamazon",
   "version": "1.0.0",
-  "description": "storefront online order",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "Week 12/Node.js & MySQL",
+  "main": "bamazonCustomer.js",
   "dependencies": {
     "cli-table2": "^0.2.0",
     "inquirer": "^3.3.0",
     "mysql": "^2.17.1"
   },
   "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ewtaylor/bamazon.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/ewtaylor/bamazon/issues"
   },
