@@ -20,7 +20,7 @@ var displayProducts = function(){
 	connection.query(query, function(err, res){
 		if(err) throw err;
 		var displayTable = new Table ({
-			head: ["Item ID", "Product Name", "Catergory", "Price", "Quantity"],
+			head: ["Item ID", "Product Name", "Category", "Price", "Quantity"],
 			colWidths: [10,25,25,10,14]
 		});
 		for(var i = 0; i < res.length; i++){
@@ -29,7 +29,7 @@ var displayProducts = function(){
 				);
 		}
         console.log(displayTable.toString());
-        console.log("");
+        // console.log("");
     
 		purchasePrompt();
 	});
@@ -40,7 +40,7 @@ function purchasePrompt(){
 	{
 		name: "ID",
 		type: "input",
-		message:"Please enter Item ID you like to purhcase.",
+		message:"Please enter Item ID you like to purchase.",
 	//	filter:Number
 	},
 	{
@@ -51,22 +51,23 @@ function purchasePrompt(){
 	},
 
  ]).then(function(answers){
-	 console.log(answers)
+	//  console.log(answers)
  	var quantityNeeded = answers.Quantity;
  	var IDrequested = answers.ID;
  	purchaseOrder(IDrequested, quantityNeeded);
  });
-}
+};
 
 function purchaseOrder(ID, amtNeeded){
-	console.log(typeof(ID))
-	console.log(amtNeeded)
-	var query1="SELECT * FROM products;"
-	 connection.query(query1,function(err,res){
-		 console.log("--------")
+	// console.log(typeof(ID))
+	// console.log(amtNeeded)
+	// var query1="SELECT * FROM products;"
+	//  connection.query(query1,function(err,res){
+	// 	 console.log("--------")
+	connection.query('Select * FROM products WHERE item_id = ' + ID, function(err,res){
 		if(err){console.log(err)};
-		console.log("YOUR In PU")
-		console.log(res)
+		// console.log("YOUR In PU")
+		// console.log(res)
 		if(amtNeeded <= res[0].stock_quantity){
 			var totalCost = res[0].price * amtNeeded;
 			console.log("Good news! That item is in stock!");
