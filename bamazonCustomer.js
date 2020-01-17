@@ -64,7 +64,8 @@ function purchaseOrder(ID, amtNeeded){
 	// var query1="SELECT * FROM products;"
 	//  connection.query(query1,function(err,res){
 	// 	 console.log("--------")
-	connection.query('Select * FROM products WHERE item_id = ' + ID, function(err,res){
+	// connection.query('Select * FROM products WHERE item_id = ' + ID, function(err,res){
+		connection.query('Select * FROM products WHERE product_name=?',[ID], function(err,res){
 		if(err){console.log(err)};
 		// console.log("YOUR In PU")
 		// console.log(res)
