@@ -12,6 +12,8 @@ Javascript
 nodeJS
 MySQL
 
+![Alt text](/screenshots/customer.png?raw=true "customerscreenshot")
+
 *Working app under screenshots and in Issues (in Github)
 
 
