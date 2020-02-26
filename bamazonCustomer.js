@@ -13,6 +13,8 @@ var connection = mysql.createConnection({
 connection.connect(function(err){
 	if(err)throw err;
 	console.log("connected as id" + connection.threadId);
+//	purchasePrompt(1009,2)
+	//displayProducts(); 
 });
 
 var displayProducts = function(){
@@ -48,27 +50,32 @@ function purchasePrompt(){
 		type:"input",
 		message:"How many items do you wish to purchase?",
 		// filter:Number
-	},
+	}
 
  ]).then(function(answers){
-	//  console.log(answers)
+	 console.log("++++")
+	  console.log(answers)
  	var quantityNeeded = answers.Quantity;
- 	var IDrequested = answers.ID;
+	 var IDrequested = answers.ID;
+	 	
  	purchaseOrder(IDrequested, quantityNeeded);
  });
 };
 
 function purchaseOrder(ID, amtNeeded){
-	// console.log(typeof(ID))
-	// console.log(amtNeeded)
+	console.log("++++++++=========")
 	// var query1="SELECT * FROM products;"
 	//  connection.query(query1,function(err,res){
-	// 	 console.log("--------")
+	// 	 console.log("--------"
+	query1="Select * FROM products WHERE item_id = ?"
+
 	// connection.query('Select * FROM products WHERE item_id = ' + ID, function(err,res){
-		connection.query('Select * FROM products WHERE product_name=?',[ID], function(err,res){
+	connection.query(query1,[parseInt(ID)], function(err,res){
+		console.log("THIS IS IN TEH QUERY")
 		if(err){console.log(err)};
 		// console.log("YOUR In PU")
-		// console.log(res)
+		console.log("--------NNNNN--")
+		 console.log(res)
 		if(amtNeeded <= res[0].stock_quantity){
 			var totalCost = res[0].price * amtNeeded;
 			console.log("Good news! That item is in stock!");
@@ -83,4 +90,3 @@ function purchaseOrder(ID, amtNeeded){
 };
    
 
-displayProducts(); 
